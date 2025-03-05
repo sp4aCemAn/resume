@@ -1,6 +1,6 @@
 \documentclass[10pt, letterpaper]{article}
 
-% packages:
+% Packages:
 \usepackage[
     ignoreheadfoot, % set margins without considering header and footer
     top=2 cm, % seperation between body and page edge from the top
@@ -14,16 +14,16 @@
 \usepackage{tabularx} % for making tables with fixed width columns
 \usepackage{array} % tabularx requires this
 \usepackage[dvipsnames]{xcolor} % for coloring text
-\definecolor{primarycolor}{rgb}{0, 0, 0} % define primary color
+\definecolor{primaryColor}{RGB}{0, 0, 0} % define primary color
 \usepackage{enumitem} % for customizing lists
 \usepackage{fontawesome5} % for using icons
 \usepackage{amsmath} % for math
 \usepackage[
-    pdftitle={james shufelt's resume},
-    pdfauthor={james shufelt},
-    pdfcreator={latex with rendercv},
+    pdftitle={James Shufelt's resume},
+    pdfauthor={James Shufelt},
+    pdfcreator={LaTeX with RenderCV},
     colorlinks=true,
-    urlcolor=primarycolor
+    urlcolor=primaryColor
 ]{hyperref} % for links, metadata and bookmarks
 \usepackage[pscoord]{eso-pic} % for floating text on the page
 \usepackage{calc} % for calculating lengths
@@ -35,20 +35,20 @@
 \usepackage{needspace} % for avoiding page brake right after the section title
 \usepackage{iftex} % check if engine is pdflatex, xetex or luatex
 
-% ensure that generate pdf is machine readable/ats parsable:
-\ifpdftex
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
     \input{glyphtounicode}
     \pdfgentounicode=1
-    \usepackage[t1]{fontenc}
+    \usepackage[T1]{fontenc}
     \usepackage[utf8]{inputenc}
     \usepackage{lmodern}
 \fi
 
 \usepackage{charter}
 
-% some settings:
+% Some settings:
 \raggedright
-\atbeginenvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
 \pagestyle{empty} % no header or footer
 \setcounter{secnumdepth}{0} % no section numbering
 \setlength{\parindent}{0pt} % no indentation
@@ -107,23 +107,23 @@
 
 \newenvironment{twocolentry}[2][]{
     \onecolentry
-    \def\secondcolumn{#2}
+    \def\secondColumn{#2}
     \setcolumnwidth{\fill, 4.5 cm}
     \begin{paracol}{2}
 }{
-    \switchcolumn \raggedleft \secondcolumn
+    \switchcolumn \raggedleft \secondColumn
     \end{paracol}
     \endonecolentry
 } % new environment for two column entries
 
 \newenvironment{threecolentry}[3][]{
     \onecolentry
-    \def\thirdcolumn{#3}
+    \def\thirdColumn{#3}
     \setcolumnwidth{, \fill, 4.5 cm}
     \begin{paracol}{3}
     {\raggedright #2} \switchcolumn
 }{
-    \switchcolumn \raggedleft \thirdcolumn
+    \switchcolumn \raggedleft \thirdColumn
     \end{paracol}
     \endonecolentry
 } % new environment for three column entries
@@ -135,95 +135,95 @@
 } % new environment for the header
 
 \newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
-  \addtoshipoutpicturefg*{% add <stuff> to current page foreground
+  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
     \put(
-        \lentounit{\paperwidth-2 cm-0 cm+0.05cm},
-        \lentounit{\paperheight-1.0 cm}
+        \LenToUnit{\paperwidth-2 cm-0 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
     ){\vtop{{\null}\makebox[0pt][c]{
-        \small\color{gray}\textit{last updated in september 2024}\hspace{\widthof{last updated in september 2024}}
+        \small\color{gray}\textit{Last updated in September 2024}\hspace{\widthof{Last updated in September 2024}}
     }}}%
   }%
 }%
 
 % save the original href command in a new command:
-\let\hrefwithoutarrow\href
+\let\hrefWithoutArrow\href
 
 % new command for external links:
 
 
 \begin{document}
-    \newcommand{\and}{\unskip
-        \cleaders\copy\andbox\hskip\wd\andbox
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
         \ignorespaces
     }
-    \newsavebox\andbox
-    \sbox\andbox{$|$}
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
 
     \begin{header}
-        \fontsize{25 pt}{25 pt}\selectfont james shufelt % name
+        \fontsize{25 pt}{25 pt}\selectfont James Shufelt % name
 
         \vspace{5 pt}
 
         \normalsize
-        \mbox{springdale ar}%
+        \mbox{Springdale AR}%
         \kern 5.0 pt%
-        \and%
+        \AND%
         \kern 5.0 pt%
-        \mbox{\hrefwithoutarrow{mailto:jamesshufeltiii@gmail.com}{jamesshufeltiii@gmail.com}}%
+        \mbox{\hrefWithoutArrow{mailto:jamesshufeltiii@gmail.com}{jamesshufeltiii@gmail.com}}%
         \kern 5.0 pt%
-        \and%
+        \AND%
         \kern 5.0 pt%
-        \mbox{\hrefwithoutarrow{tel:+1-360-600-8254}{360-600-8254}}%
+        \mbox{\hrefWithoutArrow{tel:+1-360-600-8254}{360-600-8254}}%
         \kern 5.0 pt%
-        \and%
+        \AND%
         \kern 5.0 pt%
-        \mbox{\hrefwithoutarrow{https://gitlab.com/sp4acemanworkuark}{https://gitlab.com/sp4acemanworkuark}}%
+        \mbox{\hrefWithoutArrow{https://gitlab.com/sp4acemanworkUARK}{https://gitlab.com/sp4acemanworkUARK}}%
         \kern 5.0 pt%
-        \and%
+        \AND%
         \kern 5.0 pt%
-        \mbox{\hrefwithoutarrow{https://github.com/sp4aceman}{https://github.com/sp4aceman}}%
+        \mbox{\hrefWithoutArrow{https://github.com/sp4aCemAn}{https://github.com/sp4aCemAn}}%
     \end{header}
 
     \vspace{5 pt - 0.3 cm}
 
 
 
-    \section{education}
+    \section{Education}
 
 
         
         \begin{twocolentry}{
-            aug 2023 – current
+            Aug 2023 – Current
         }
-            \textbf{university of arkansas}, pursuing bs in computer science\end{twocolentry}
+            \textbf{University of Arkansas}, Pursuing BS in Computer Science\end{twocolentry}
 
         \vspace{0.10 cm}
         \begin{onecolentry}
             \begin{highlights}
-                \item gpa: 3.2/4 
-                \item \textbf{coursework:} computer organization, computer networks, software engineering
+                \item GPA: 3.2/4 (\href{https://example.com}{a link to somewhere})
+                \item \textbf{Coursework:} Computer Organization, Computer Networks, Software Engineering
             \end{highlights}
         \end{onecolentry}
 
 
 
     
-    \section{experience}
+    \section{Experience}
 
 
 
         
         \begin{twocolentry}{
-            may 2023 – july 2023
+            May 2023 – July 2023
         }
-            \textbf{security analyst intern}, silverlings it -- portland, or\end{twocolentry}
+            \textbf{Security Analyst Intern}, Silverlings IT -- Portland, OR\end{twocolentry}
 
         \vspace{0.10 cm}
         \begin{onecolentry}
             \begin{highlights}
-                \item duties included doing qualys scans, reviewing rmm tickets, writing powershell scripts to automate tasks
-                \item implementing netwrix network monitoring software for our it team on all of our clients
-                \item analyzing data from our various tools to tools to find anomalies in our system and report issues to higher engineers
+                \item Duties included doing Qualys scans, reviewing RMM tickets, writing PowerShell scripts to automate tasks
+                \item Implementing Netwrix network monitoring Software for our IT team on all of our clients
+                \item Analyzing data from our various tools to tools to find anomalies in our system and report issues to higher engineers
             \end{highlights}
         \end{onecolentry}
 
@@ -231,37 +231,37 @@
         \vspace{0.2 cm}
 
         \begin{twocolentry}{
-            aug 2022 –  2023 mar
+            Aug 2022 –  2023 Mar
         }
-            \textbf{stocking associate}, walmart -- fayettvill, ar\end{twocolentry}
+            \textbf{Stocking Associate}, Walmart -- Fayettvill, AR\end{twocolentry}
 
         \vspace{0.10 cm}
         \begin{onecolentry}
             \begin{highlights}
-                \item stock produce and helped with general store operation
+                \item Stock Produce and helped with general store operation
             \end{highlights}
         \end{onecolentry}
 
 
 
     
-    \section{activities and awards}
+    \section{Activities And Awards}
 
         
         \begin{onecolentry}{
         }
-            \textbf{business/leadership/certifications}\end{onecolentry}
+            \textbf{Business/Leadership/Certifications}\end{onecolentry}
 
         \vspace{0.10 cm}
         \begin{onecolentry}
             \begin{highlights}
-                \item cyber patriots – gold tier
-                \item skills usa arkansas state 1st place – programming
-                \item skills usa arkansas state 1st place – cyber security
-                \item competed in skillsusa national - programming 
-                \item certified in security pro (testout)
-                \item information technology – java (certiport)
-                \item information technology – cybersecurity (certiport)
+                \item Cyber Patriots – Gold Tier
+                \item Skills USA Arkansas State 1st Place – Programming
+                \item Skills USA Arkansas State 1st Place – Cyber Security
+                \item Competed in SkillsUSA National - Programming 
+                \item Certified in Security Pro (TestOut)
+                \item Information Technology – Java (Certiport)
+                \item Information Technology – Cybersecurity (Certiport)
             \end{highlights}
         \end{onecolentry}
 
@@ -271,18 +271,18 @@
 
      
     
-    \section{projects}
+    \section{Projects}
 
         \begin{twocolentry}{
             \href{https://gitlab.com/paradigms1/pythonaiwetherman}{python weather man gitlab}
         }
-            \textbf{ai weather man}\end{twocolentry}
+            \textbf{AI weather man}\end{twocolentry}
 
         \vspace{0.10 cm}
         \begin{onecolentry}
             \begin{highlights}
-                \item a simple terminal ai wrapper that gathers location, and current weather data on a user and then uses a specific prompt and chatgpt's api to then get a consistent personalized response in json to then be displayed in a nice format for the user to do what they please with
-                \item tools used: openweather api, chatgpt api, python 
+                \item A simple terminal AI wrapper that gathers location, and current weather data on a user and then uses a specific prompt and ChatGPT's API to then get a consistent personalized response in JSON to then be displayed in a nice format for the user to do what they please with
+                \item Tools Used: OpenWeather API, ChatGPT API, Python 
             \end{highlights}
         \end{onecolentry}
 
@@ -290,19 +290,19 @@
 
 
     
-    \section{skills}
+    \section{Skills}
 
 
 
         
         \begin{onecolentry}
-            \textbf{languages:} java, javascript, typescript, lua, bash, powershell, c++, python
+            \textbf{Languages:} Java, JavaScript, Typescript, Lua, Bash, PowerShell, C++, Python
         \end{onecolentry}
 
         \vspace{0.2 cm}
 
         \begin{onecolentry}
-            \textbf{technologies:} hyper-v, qemu, virtualbox, packet tracer, git 
+            \textbf{Technologies:} Hyper-V, QEMU, VirtualBox, Packet Tracer, Git 
         \end{onecolentry}
 
 
