@@ -1,0 +1,322 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=2 cm, % seperation between body and page edge from the top
+    bottom=2 cm, % seperation between body and page edge from the bottom
+    left=2 cm, % seperation between body and page edge from the left
+    right=2 cm, % seperation between body and page edge from the right
+    footskip=1.0 cm, % seperation between body and footer
+    % showframe % for debugging 
+]{geometry} % for adjusting page geometry
+\usepackage{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{0, 0, 0} % define primary color
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath} % for math
+\usepackage[
+    pdftitle={James Shufelt's resume},
+    pdfauthor={James Shufelt},
+    pdfcreator={LaTeX with RenderCV},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage{charter}
+
+% Some settings:
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0.15cm} % set column seperation
+\pagenumbering{gobble} % no page numbering
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    % left space:
+    -1pt
+}{
+    % top space:
+    0.3 cm
+}{
+    % bottom space:
+    0.2 cm
+} % section title spacing
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0 cm + 10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights
+
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights for bullet entries
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0 cm + 0.00001 cm
+    }{
+        0 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for three column entries
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+} % new environment for the header
+
+\newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+    \put(
+        \LenToUnit{\paperwidth-2 cm-0 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{Last updated in September 2024}\hspace{\widthof{Last updated in September 2024}}
+    }}}%
+  }%
+}%
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
+
+    \begin{header}
+        \fontsize{25 pt}{25 pt}\selectfont James Shufelt % name
+
+        \vspace{5 pt}
+
+        \normalsize
+        \mbox{Springdale AR}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{mailto:jamesshufeltiii@gmail.com}{jamesshufeltiii@gmail.com}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{tel:+1-360-600-8254}{360-600-8254}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://gitlab.com/sp4acemanworkUARK}{https://gitlab.com/sp4acemanworkUARK}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://github.com/sp4aCemAn}{https://github.com/sp4aCemAn}}%
+    \end{header}
+
+    \vspace{5 pt - 0.3 cm}
+
+
+
+    \section{Education}
+
+
+        
+        \begin{twocolentry}{
+            Aug 2023 – Current
+        }
+            \textbf{University of Arkansas}, Pursuing BS in Computer Science\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item \textbf{Coursework:} Operating Systems, Cloud Computing and Security
+            \end{highlights}
+        \end{onecolentry}
+
+
+
+    
+    \section{Experience}
+
+
+
+        
+        \begin{twocolentry}{
+            May 2023 – July 2023
+        }
+            \textbf{Security Analyst Intern}, Silverlings IT -- Portland, OR\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Duties included doing Qualys scans, reviewing RMM tickets, writing PowerShell scripts to automate tasks
+                \item Implementing Netwrix network monitoring Software for our IT team on all of our clients
+                \item Analyzing data from our various tools to tools to find anomalies in our system and report issues to higher engineers
+            \end{highlights}
+        \end{onecolentry}
+
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            Aug 2022 –  2023 Mar
+        }
+            \textbf{Stocking Associate}, Walmart -- Fayettville, AR\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Stock Produce and helped with general store operation
+            \end{highlights}
+        \end{onecolentry}
+
+
+
+    
+    \section{Activities And Awards}
+
+        
+        \begin{onecolentry}{
+        }
+            \textbf{Business/Leadership/Certifications}\end{onecolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Skills USA Arkansas State 1st Place – Programming
+                \item Skills USA Arkansas State 1st Place – Cyber Security
+                \item Certified in Security Pro (TestOut)
+                \item Information Technology – Java (Certiport)
+                \item Information Technology – Cybersecurity (Certiport)
+            \end{highlights}
+        \end{onecolentry}
+        \vspace{0.10 cm}
+       \begin{onecolentry}{
+        }
+            \textbf{Competitions}\end{onecolentry}
+            
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item HogHacks 2025
+                \item RazorHack 2024 
+                \item MLH HogHacks 2024
+            \end{highlights}
+        \end{onecolentry}
+
+
+    \section{Projects}
+
+        \begin{twocolentry}{
+            \href{https://github.com/andrewamidei/Hackathon-2025}{Hackathon-2025}
+        }
+            \textbf{Self Help AI app}\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item The chat support app straight out of your wildest dystopian dreams. This was my 2025 hackathon project that me and a team worked on. 
+                \item Tools Used: Flutter, Python, Docker, Ollama
+            \end{highlights}
+        \end{onecolentry}
+
+        \begin{twocolentry}{
+            \href{https://gitlab.com/paradigms1/pythonaiwetherman}{python weather man gitlab}
+        }
+            \textbf{AI weather man}\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item A simple terminal AI wrapper that gathers location, and current weather data on a user and then uses a specific prompt and ChatGPT's API to get a consistent personalized response in JSON to be displayed in a user friendly format 
+                \item Tools Used: OpenWeather API, ChatGPT API, Python 
+            \end{highlights}
+        \end{onecolentry}
+    
+    \section{Skills}
+
+     
+        \begin{onecolentry}
+            \textbf{Languages:} Java, JavaScript, Typescript, Lua, Bash, PowerShell, C++, Python, Go
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{onecolentry}
+            \textbf{Technologies:} Hyper-V, QEMU, VirtualBox, Packet Tracer, Git, Docker
+        \end{onecolentry}
+
+
+    
+
+\end{document}

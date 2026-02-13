@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  10 SEP 2025 14:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  12 FEB 2026 14:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./resumeTexv1.tex
+**resumeTexv1.tex
 (./resumeTexv1.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -471,7 +471,7 @@ LaTeX Font Info:    Trying to load font information for T1+bch on input line 15
 (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/t1bch.fd
 File: t1bch.fd 2004/10/18 font definitions for T1/bch.
 )
-(./resumeTexv1.aux)
+No file resumeTexv1.aux.
 \openout1 = `resumeTexv1.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 153.
@@ -492,7 +492,6 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 153.
 LaTeX Font Info:    ... okay on input line 153.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 153.
 LaTeX Font Info:    ... okay on input line 153.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -595,15 +594,22 @@ Package lastpage Warning: \@currentHpage is
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package lastpage Warning: Rerun to get the references right on input line 322.
+
  ) 
 Here is how much of TeX's memory you used:
- 15481 strings out of 473190
- 262044 string characters out of 5715801
- 680770 words of memory out of 5000000
- 38531 multiletter control sequences out of 15000+600000
+ 15478 strings out of 473190
+ 261982 string characters out of 5715801
+ 680761 words of memory out of 5000000
+ 38530 multiletter control sequences out of 15000+600000
  591350 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,7n,79p,351b,453s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,7n,79p,349b,453s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb><
 /usr/local/texlive/2025/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></us
 r/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/te
