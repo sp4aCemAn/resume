@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  6 MAR 2026 16:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  6 MAR 2026 16:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -608,7 +608,7 @@ Here is how much of TeX's memory you used:
 /usr/local/texlive/2025/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></us
 r/local/texlive/2025/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/te
 xlive/2025/texmf-dist/fonts/type1/public/lm/lmsy9.pfb>
-Output written on resumeTexv1.pdf (1 page, 43761 bytes).
+Output written on resumeTexv1.pdf (1 page, 43785 bytes).
 PDF statistics:
  64 PDF objects out of 1000 (max. 8388607)
  52 compressed objects within 1 object stream
