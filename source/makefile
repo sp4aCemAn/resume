@@ -1,11 +1,15 @@
 OUTPUTDIR = ..
 FILENAME = resumeTexv1
 
-.PHONY: build clean
+.PHONY: build clean publish
 
 build:
 	pdflatex $(FILENAME).tex
-	mv $(FILENAME).pdf $(OUTPUTDIR)/
 
 clean:
-	rm -f *.aux *.log *.out $(OUTPUTDIR)/$(FILENAME).pdf
+	rm -f *.aux *.log *.out *.pdf
+
+publish:
+		cp $(FILENAME).pdf $(OUTPUTDIR)/$(FILENAME).pdf
+
+
